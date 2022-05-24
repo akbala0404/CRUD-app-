@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link rel="stylesheet" th:href="@{/style/style.css}">
+<head>
+    <meta charset="UTF-8"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Index</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li sec:authorize="hasAnyRole('ADMIN')">
+                    <a th:href="@{users}">Users </a>
+                </li>
+                <li><a th:href="@{courses}">Courses</a> |</li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <div sec:authorize="isAuthenticated()">
+                    <b><span style="color: #cccccc" sec:authentication="name">Username</span></b> &nbsp;
+                    <i><span style="color: #cccccc"  sec:authentication="principal.authorities">Roles</span></i>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div  class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#Carousel" data-slide-to="1"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="https://www.esafety.gov.au/sites/default/files/2020-04/blog-covid-19-child_safety.jpg" style="height:500px" alt="no connection">
+            <div class="carousel-caption"><h1>WELCOME TO THE LEARN & ACHIEVE ACADEMY!</h1></div>
+        </div>
+
+        <div class="item">
+            <img src="https://www.gettingsmart.com/wp-content/uploads/2019/02/8a6f1e04-84ae-462c-98c2-b8ae6e5a1d84_Digital20Learning20Feature20Image-964x580.jpg" style="height:450px" alt="no connection">
+        </div>
+    </div>
+
+    <a class="left carousel-control" href="#Carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+    </a>
+
+    <a class="right carousel-control" href="#Carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only"></span>
+    </a>
+</div>
+
+<div class="container text-center"><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <i class='fas fa-award' style='font-size:36px'></i>
+            <h3>National Awards</h3>
+            <p>Makes quality education affordable<br>for everyone!We offer special online<br>applications for a more complete<br>understanding of the topic.</p>
+        </div>
+        <div class="col-sm-4">
+            <i class='fas fa-chalkboard-teacher' style='font-size:36px'></i>
+            <h3>Best Teachers</h3>
+            <p>Created to support teachers<br> in their desire to make class<br>activities more interesting<br>and effective</p>
+        </div>
+        <div class="col-sm-4">
+            <i class='fas fa-chalkboard' style='font-size:36px'></i>
+            <h3>Many Courses</h3>
+            <p>Available always and everywhere.<br>You can study at time and place<br> most convenient to you.</p>
+        </div>
+    </div>
+</div><br>
+
+<div class="col-sm-12 course">
+    <img src="https://www.cityofbristol.ac.uk/wp-content/uploads/glenn-carstens-peters-npxXWgQ33ZQ-unsplash-1920x1080.jpg"  height="750" class="course" alt="no connection">
+    <div class="carousel-caption">
+        <h2>Our Advantages</h2>
+        <div class="container text-center"><br>
+            <div class="row advan">
+                <div class="col-sm-3">
+                    <i class='far fa-thumbs-up' style='font-size:24px'></i>
+                    Makes quality education affordable for everyone!<br>
+                    <i class='fas fa-globe-europe' style='font-size:24px'></i>
+                    Available always and everywhere. You can study at time and place most convenient to you.
+                </div>
+                <div class="col-sm-3">
+                    <i class='fas fa-chalkboard-teacher' style='font-size:24px'></i>
+                    Created to support teachers in their desire to make class activities more interesting and effective.
+                    <span><i class="icon-video"></i></span>
+                    <p>Provides education for kids with special educational needs.</p>
+                </div>
+                <div class="col-sm-3">
+                    <span><i class="icon-search"></i></span>
+                    <p>More than 10,000 interactive lessons based on the school curriculum.</p>
+                    <span><i class="icon-cloud"></i></span>
+                    <p>Collected videos on the topic of answers to logical questions, the history of theories.</p>
+                </div>
+            </div>
+        </div><br>
+    </div>
+</div><hr>
+<section class="trainer_area section_gap_top">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="main_title">
+                <div class="col-lg-12">
+                    <h2 class="mb-3">Our Expert Trainers</h2>
+                    <p>Replenish man have thing gathering lights yielding shall you</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center d-flex align-items-center">
+            <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+                <div class="thumb d-flex justify-content-sm-center"><img class="img-fluid" src="img/trainer/t1.jpg" alt="" /></div>
+                <div class="meta-text text-sm-center">
+                    <h4>Mated Nithan</h4>
+                    <p class="designation">Sr. web designer</p>
+                    <div class="mb-4"><p>If you are looking at blank cassettes on the web, you may be very confused at the.</p></div>
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+                <div class="thumb d-flex justify-content-sm-center"><img class="img-fluid" src="img/trainer/t2.jpg" alt="" /></div>
+                <div class="meta-text text-sm-center">
+                    <h4>David Cameron</h4>
+                    <p class="designation">Sr. web designer</p>
+                    <div class="mb-4"><p>If you are looking at blank cassettes on the web, you may be very confused at the.</p></div>
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+                <div class="thumb d-flex justify-content-sm-center"><img class="img-fluid" src="img/trainer/t3.jpg" alt="" /></div>
+                <div class="meta-text text-sm-center">
+                    <h4>Jain Redmel</h4>
+                    <p class="designation">Sr. Faculty Data Science</p>
+                    <div class="mb-4"><p>If you are looking at blank cassettes on the web, you may be very confused at the.</p></div>
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
+                <div class="thumb d-flex justify-content-sm-center"><img class="img-fluid" src="img/trainer/t4.jpg" alt="" /></div>
+                <div class="meta-text text-sm-center">
+                    <h4>Nathan Macken</h4>
+                    <p class="designation">Sr. web designer</p>
+                    <div class="mb-4"><p>If you are looking at blank cassettes on the web, you may be very confused at the.</p></div>
+                    <div class="align-items-center justify-content-center d-flex">
+                        <a href="#"><i class="ti-facebook"></i></a>
+                        <a href="#"><i class="ti-twitter"></i></a>
+                        <a href="#"><i class="ti-linkedin"></i></a>
+                        <a href="#"><i class="ti-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <div class="first">
+                    <h2 class="fw-bold mb-4">About Us</h2>
+                    <p style='font-size:16px'>We are the center where people can study about marketing secrets and learn about trend professions. We show how to make big money </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="second">
+                    <h2 class="fw-bold mb-4"> Our Services</h2>
+                    <ul class="float" style='font-size:16px'>
+                        <li><a href="#">Access to onlain</a></li>
+                        <li><a href="#">Reliable &amp; Identity</a></li>
+                        <li><a href="#">Support of professionals</a></li>
+                        <li><a href="#">Free webinars</a></li>
+                        <li><a href="#">Quality education</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <div class="third">
+                    <h2 class="fw-bold mb-4">Follow Us</h2>
+                    <ul style='font-size:16px'>
+                        <li>Akbala Tleugaliyeva </li>
+                        <li></li>
+                        <li><i class="far fa-envelope"></i>@Learn&Achieve.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Astana, Kazakhstan </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="line"></div>
+                <div class="second2">
+                    <a href="#" target="_blank"> <i class="fa fa-facebook-official fa-2x margin" style="font-size:30px"></i></a>
+                    <a href="#" target="_blank"> <i class="fa fa-instagram fa-2x margin" style="font-size:30px"></i></a>
+                    <a href="#" target="_blank"> <i class="fa fa-telegram fa-2x margin" style="font-size:30px"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube fa-2x margin" style="font-size:30px"></i></a>
+                </div>
+                <p style='font-size:14px; color: white;'><center>2021.March All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="https://web.telegram.org/#/im?p=@balaa04" target="_blank">Akbala Tleugaliyeva</a> Demo Images by <a href="https://www.google.com/" target="_blank">google</a></span></center></p>
+            </div>
+        </div>
+    </div>
+</footer>

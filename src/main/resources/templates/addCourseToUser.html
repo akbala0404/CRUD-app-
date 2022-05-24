@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Courses</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<meta charset="UTF-8">
+<title>Add Course To User </title>
+</head>
+<body>
+<h1><center> Adding a course to User</center></h1>
+<div class="container">
+    <form action="#"  th:action="@{/addcourse}" th:object="${course}" method="post">
+
+        <div class="form-group">
+            <label>User ID:</label>
+            <input type="text" class="form-control" th:field="*{userId}" />
+        </div>
+        <div class="form-group">
+            <label>Course ID:</label>
+            <input type="text"   class="form-control" th:field="*{courseIds}" />
+        </div>
+        <td> <button  type="submit" class="btn btn-primary">Save</button> </td>
+    </form>
+</div>
